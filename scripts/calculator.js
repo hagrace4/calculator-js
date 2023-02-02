@@ -58,51 +58,59 @@ nineBtn.addEventListener("click", () => {
 const addBtn = document.getElementById("add");
 addBtn.addEventListener("click", () => {
   displayValue = addBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const fourBtn = document.getElementById("four");
 fourBtn.addEventListener("click", () => {
   displayValue = fourBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const fiveBtn = document.getElementById("five");
 fiveBtn.addEventListener("click", () => {
   displayValue = fiveBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const sixBtn = document.getElementById("six");
 sixBtn.addEventListener("click", () => {
   displayValue = sixBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const subtractBtn = document.getElementById("subtract");
 subtractBtn.addEventListener("click", () => {
   displayValue = subtractBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const oneBtn = document.getElementById("one");
 oneBtn.addEventListener("click", () => {
   displayValue = oneBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const twoBtn = document.getElementById("two");
 twoBtn.addEventListener("click", () => {
   displayValue = twoBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const threeBtn = document.getElementById("three");
 threeBtn.addEventListener("click", () => {
   displayValue = threeBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const multiplyBtn = document.getElementById("multiply");
 multiplyBtn.addEventListener("click", () => {
   displayValue = multiplyBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const zeroBtn = document.getElementById("zero");
 zeroBtn.addEventListener("click", () => {
   displayValue = zeroBtn.textContent;
+  userInput.textContent = displayValue;
 });
-
-
