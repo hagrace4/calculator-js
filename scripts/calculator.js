@@ -1,3 +1,4 @@
+// Operation Functions
 function add(a, b) {
   return a + b;
 }
@@ -28,3 +29,20 @@ function operate(op, a, b) {
     return divide(a, b);
   }
 }
+
+// Function to populate the display when number buttons are clicked
+function populateDisplay(num) {
+  const userInput = document.querySelector('.user-input');
+  userInput.textContent += num;
+}
+
+// **Event Listeners**
+//Number buttons
+const numberButtons = document.querySelectorAll('.num-buttons > button');
+numberButtons.forEach(button => {
+  if (!isNaN(button.textContent)) {
+    button.addEventListener('click', () => {
+      populateDisplay(button.textContent);
+    });
+  }
+});
