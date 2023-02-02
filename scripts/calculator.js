@@ -30,19 +30,71 @@ function operate(op, a, b) {
   }
 }
 
-// Function to populate the display when number buttons are clicked
-function populateDisplay(num) {
-  const userInput = document.querySelector('.user-input');
-  userInput.textContent += num;
-}
+// variables
+let displayValue = "";
 
-// **Event Listeners**
-//Number buttons
-const numberButtons = document.querySelectorAll('.num-buttons > button');
-numberButtons.forEach(button => {
-  if (!isNaN(button.textContent)) {
-    button.addEventListener('click', () => {
-      populateDisplay(button.textContent);
-    });
-  }
+// Event listeners for buttons
+const sevenBtn = document.getElementById("seven");
+sevenBtn.addEventListener("click", () => {
+  displayValue = sevenBtn.textContent;
+});
+
+const eightBtn = document.getElementById("eight");
+eightBtn.addEventListener("click", () => {
+  displayValue = eightBtn.textContent;
+});
+
+const nineBtn = document.getElementById("nine");
+nineBtn.addEventListener("click", () => {
+  displayValue = nineBtn.textContent;
+});
+
+const addBtn = document.getElementById("add");
+addBtn.addEventListener("click", () => {
+  displayValue = addBtn.textContent;
+});
+
+const fourBtn = document.getElementById("four");
+fourBtn.addEventListener("click", () => {
+  displayValue = fourBtn.textContent;
+});
+
+const fiveBtn = document.getElementById("five");
+fiveBtn.addEventListener("click", () => {
+  displayValue = fiveBtn.textContent;
+});
+
+const sixBtn = document.getElementById("six");
+sixBtn.addEventListener("click", () => {
+  displayValue = sixBtn.textContent;
+});
+
+const subtractBtn = document.getElementById("subtract");
+subtractBtn.addEventListener("click", () => {
+  displayValue = subtractBtn.textContent;
+});
+
+const oneBtn = document.getElementById("one");
+oneBtn.addEventListener("click", () => {
+  displayValue = oneBtn.textContent;
+});
+
+const twoBtn = document.getElementById("two");
+twoBtn.addEventListener("click", () => {
+  displayValue = twoBtn.textContent;
+});
+
+const threeBtn = document.getElementById("three");
+threeBtn.addEventListener("click", () => {
+  displayValue = threeBtn.textContent;
+});
+
+const multiplyBtn = document.getElementById("multiply");
+multiplyBtn.addEventListener("click", () => {
+  displayValue = multiplyBtn.textContent;
+});
+
+const zeroBtn = document.getElementById("zero");
+zeroBtn.addEventListener("click", () => {
+  displayValue = zeroBtn.textContent;
 });

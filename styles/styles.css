@@ -20,6 +20,10 @@ body {
   width: 100%;
 }
 
+.display {
+
+  font-size: larger;
+}
 
 .ctl-buttons {
   display: grid;
