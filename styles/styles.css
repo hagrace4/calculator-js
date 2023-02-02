@@ -1,0 +1,41 @@
+:root {
+  --white: #fff;
+  --blue: #0eabff87;
+}
+body {
+  background: var(--blue);
+  box-sizing: border-box;
+}
+.container-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5rem;
+  margin-bottom: 2rem;
+
+}
+.container-child {
+  max-width: 400px;
+  width: 100%;
+}
+
+.num-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--white);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.num-buttons > button {
+  cursor: pointer;
+  margin: 2px;
+  width: 80px;
+  height: 80px;
+
+}
