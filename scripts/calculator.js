@@ -30,23 +30,29 @@ function operate(op, a, b) {
   }
 }
 
-// variables
+// **variables**
 let displayValue = "";
+// set user input to display
+const userInput = document.querySelector('.user-input');
 
 // Event listeners for buttons
 const sevenBtn = document.getElementById("seven");
 sevenBtn.addEventListener("click", () => {
   displayValue = sevenBtn.textContent;
+  userInput.textContent = displayValue;
 });
+
 
 const eightBtn = document.getElementById("eight");
 eightBtn.addEventListener("click", () => {
   displayValue = eightBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const nineBtn = document.getElementById("nine");
 nineBtn.addEventListener("click", () => {
   displayValue = nineBtn.textContent;
+  userInput.textContent = displayValue;
 });
 
 const addBtn = document.getElementById("add");
@@ -98,3 +104,5 @@ const zeroBtn = document.getElementById("zero");
 zeroBtn.addEventListener("click", () => {
   displayValue = zeroBtn.textContent;
 });
+
+
