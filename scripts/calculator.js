@@ -114,3 +114,9 @@ zeroBtn.addEventListener("click", () => {
   displayValue = zeroBtn.textContent;
   userInput.textContent = displayValue;
 });
+
+let operandA = 0;
+let operandB = 0;
+let operator = "";
+
+operate(operator, operandA, operandB);
