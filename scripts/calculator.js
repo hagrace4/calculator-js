@@ -115,8 +115,31 @@ zeroBtn.addEventListener("click", () => {
   userInput.textContent = displayValue;
 });
 
-let operandA = 0;
-let operandB = 0;
+let firstNumber = 0;
+let secondNumber = 0;
 let operator = "";
+let result = 0;
 
-operate(operator, operandA, operandB);
+// doCalc() Function
+// Function to calculate the result
+function handleNumber(event) {
+  // Get the target element and its text content
+  const target = event.target;
+  const text = target.textContent;
+
+  // Get the current value of the display
+  const display = document.querySelector(".user-input");
+  let displayValue = display.textContent;
+
+  // check if the display value is currently showing an error message
+  if (displayValue == "Error") {
+    //if so, clear the display to empty string
+    displayValue = "";
+  }
+
+  // Append the pressed number to the display value
+  displayValue += text;
+
+  // Update the display with the new value
+  display.textContent = displayValue;
+}
