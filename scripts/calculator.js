@@ -1,10 +1,21 @@
 
 // **variables**
-let displayValue = "";
-// set user input to display
-const userInput = document.querySelector('.user-input');
+let displayValue = "0";
+let firstNumber = null;
+let secondNumber = null;
+let firstOperator = null;
+let secondOperator = null;
+let result = null;
+
 
 // Event listener for buttons
+const button = document.querySelectorAll('button');
+console.log(button);
+
+
+
+
+
 
 
 
