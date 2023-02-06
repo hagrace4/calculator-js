@@ -44,6 +44,7 @@ function getOperator() {
       if (button[i].classList.contains('operator')) {
         firstOperator = button[i].value;
         displayValue = button[i].value;
+        populateDisplay();
         console.log(firstOperator);
       }
     })
