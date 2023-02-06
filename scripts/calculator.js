@@ -7,16 +7,35 @@ let firstOperator = null;
 let secondOperator = null;
 let result = null;
 
+const button = document.querySelectorAll('button');
+
+
 
 // Event listener for buttons
-const button = document.querySelectorAll('button');
-console.log(button);
+const btnPress = document.addEventListener('click', function (e) {
 
 
+})
 
+function populateDisplay() {
+  const display = document.getElementById('display');
+  display.innerText = displayValue;
 
+}
 
+function buttonClick() {
+  for (let i = 0; i< button.length; i++) {
+    button[i].addEventListener('click', function() {
+      if(button[i].classList.contains('operand')) {
+        displayValue = button[i].value;
+        populateDisplay();
+        // console.log(button[i].value);
+      }
+    })
+  }
+}
 
+buttonClick();
 
 
 // Operation Functions
