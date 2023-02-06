@@ -24,11 +24,12 @@ function populateDisplay() {
 }
 
 function buttonClick() {
-  for (let i = 0; i< button.length; i++) {
-    button[i].addEventListener('click', function() {
-      if(button[i].classList.contains('operand')) {
+  for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', function () {
+      if (button[i].classList.contains('operand')) {
         displayValue = button[i].value;
         populateDisplay();
+        firstNumber = displayValue;
         // console.log(button[i].value);
       }
     })
@@ -36,6 +37,25 @@ function buttonClick() {
 }
 
 buttonClick();
+
+function getOperator() {
+  for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', function () {
+      if (button[i].classList.contains('operator')) {
+        firstOperator = button[i].value;
+        displayValue = button[i].value;
+        console.log(firstOperator);
+      }
+    })
+  }
+}
+
+getOperator();
+
+function doCalc() {
+
+
+}
 
 
 // Operation Functions
