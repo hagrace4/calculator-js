@@ -71,6 +71,20 @@ document.addEventListener("click", function (event) {
   }
 });
 
+//Handle the equals Button
+for (let i = 0; i < button.length; i++) {
+  button[i].addEventListener("click", function() {
+    if (button[i].classList.contains("equals")) {
+      if (firstNumber !== null && firstOperator !== null && secondNumber !== null) {
+        result = operate(firstOperator, parseInt(firstNumber), parseInt(secondNumber));
+        displayValue = result.toString();
+        populateDisplay();
+      }
+    }
+  });
+}
+
+// Store 
 
 
 // Operation Functions
