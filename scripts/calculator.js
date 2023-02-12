@@ -53,10 +53,24 @@ function getOperator() {
 
 getOperator();
 
-function doCalc() {
 
 
-}
+// Handle clear and all-clear buttons
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("clear")) {
+    displayValue = "0";
+    populateDisplay();
+  } else if (event.target.classList.contains("all-clear")) {
+    displayValue = "0";
+    firstNumber = null;
+    secondNumber = null;
+    firstOperator = null;
+    secondOperator = null;
+    result = null;
+    populateDisplay();
+  }
+});
+
 
 
 // Operation Functions
