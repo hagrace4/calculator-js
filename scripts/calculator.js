@@ -27,16 +27,15 @@ function buttonClick() {
   for (let i = 0; i < button.length; i++) {
     button[i].addEventListener('click', function () {
       if (button[i].classList.contains('operand')) {
-        displayValue = button[i].value;
+        displayValue = displayValue === "0" ? button[i].value : displayValue + button[i].value;
         populateDisplay();
         firstNumber = displayValue;
-        // console.log(button[i].value);
       }
     })
   }
 }
 
-buttonClick();
+
 
 function getOperator() {
   for (let i = 0; i < button.length; i++) {
@@ -45,13 +44,14 @@ function getOperator() {
         firstOperator = button[i].value;
         displayValue = button[i].value;
         populateDisplay();
-        console.log(firstOperator);
       }
     })
   }
 }
 
 getOperator();
+
+
 
 
 
@@ -73,7 +73,7 @@ document.addEventListener("click", function (event) {
 
 //Handle the equals Button
 for (let i = 0; i < button.length; i++) {
-  button[i].addEventListener("click", function() {
+  button[i].addEventListener("click", function () {
     if (button[i].classList.contains("equals")) {
       if (firstNumber !== null && firstOperator !== null && secondNumber !== null) {
         result = operate(firstOperator, parseInt(firstNumber), parseInt(secondNumber));
@@ -84,7 +84,30 @@ for (let i = 0; i < button.length; i++) {
   });
 }
 
-// Store 
+// Store second number and operator
+for (let i = 0; i < button.length; i++) {
+  button[i].addEventListener('click', function () {
+    if (button[i].classList.contains("operand")) {
+      if (firstOperator == null) {
+        firstNumber = firstNumber === null ? button[i].value : firstNumber + button[i].value;
+        console.log("firstNumber: ", firstNumber);
+      } else {
+        secondNumber = secondNumber === null ? button[i].value : secondNumber + button[i].value;
+        console.log("secondNumber: ", secondNumber);
+      }
+      displayValue = firstOperator == null ? firstNumber : secondNumber;
+      populateDisplay();
+    } else if (button[i].classList.contains("operator")) {
+      if (firstOperator === null) {
+        firstOperator = button[i].value;
+      } else {
+        secondOperator = button[i].value;
+      }
+      displayValue = button[i].value;
+      populateDisplay();
+    }
+  });
+}
 
 
 // Operation Functions
@@ -105,6 +128,9 @@ function divide(a, b) {
 }
 
 function operate(op, a, b) {
+  console.log("a: ", a);
+  console.log("op", op);
+  console.log("b: ", b);
   if (op == "+") {
     return add(a, b);
   }
