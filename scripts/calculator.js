@@ -6,6 +6,9 @@ let secondNumber = null;
 let firstOperator = null;
 let secondOperator = null;
 let result = null;
+let currentOperation = null;
+
+
 
 const button = document.querySelectorAll('button');
 
@@ -37,6 +40,9 @@ function buttonClick() {
 
 
 
+
+
+
 function getOperator() {
   for (let i = 0; i < button.length; i++) {
     button[i].addEventListener('click', function () {
@@ -49,7 +55,22 @@ function getOperator() {
   }
 }
 
-getOperator();
+// function getOperator() {
+//   for (let i = 0; i < button.length; i++) {
+//     button[i].addEventListener('click', function () {
+//       if (button[i].classList.contains('operator')) {
+//         if (firstOperator === null) {
+//           firstOperator = button[i].value;
+//         } else {
+//           secondOperator = button[i].value;
+//         }
+//         displayValue = button[i].value;
+//         populateDisplay();
+//       }
+//     })
+//   }
+// }
+
 
 
 
@@ -84,6 +105,11 @@ for (let i = 0; i < button.length; i++) {
   });
 }
 
+// function inputEquals() {
+//   if (second)
+
+// }
+
 // Store second number and operator
 for (let i = 0; i < button.length; i++) {
   button[i].addEventListener('click', function () {
@@ -108,6 +134,8 @@ for (let i = 0; i < button.length; i++) {
     }
   });
 }
+
+
 
 
 // Operation Functions
