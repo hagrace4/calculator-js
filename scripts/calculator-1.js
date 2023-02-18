@@ -1,4 +1,3 @@
-
 // **variables**
 let displayValue = "0";
 let firstNumber = null;
@@ -8,26 +7,12 @@ let secondOperator = null;
 let result = null;
 let currentOperation = null;
 
-
-
 const button = document.querySelectorAll('button');
-
-
-
-// Event listener for buttons
-const btnPress = document.addEventListener('click', function (e) {
-
-
-})
 
 function populateDisplay() {
   const display = document.getElementById('display');
   display.innerText = displayValue;
-  console.log("result: ", result);
-
 }
-
-
 
 function buttonClick() {
   for (let i = 0; i < button.length; i++) {
@@ -35,25 +20,37 @@ function buttonClick() {
       if (button[i].classList.contains('operand')) {
         displayValue = displayValue === "0" ? button[i].value : displayValue + button[i].value;
         populateDisplay();
-        if (firstOperator == null) {
+        if (firstOperator === null) {
           firstNumber = displayValue;
         } else {
           secondNumber = displayValue;
         }
       }
       if (button[i].classList.contains('operator')) {
-        if (firstOperator == null) {
-          firstOperator = button[i].value;
-        } else {
+        if (secondOperator !== null) {
+          let num1 = parseFloat(firstNumber);
+          let num2 = parseFloat(secondNumber);
+          let result = operate(firstOperator, num1, num2);
+          if (!isNaN(result)) {
+            firstNumber = result.toString();
+            displayValue = firstNumber;
+            populateDisplay();
+            secondNumber = null;
+            secondOperator = null;
+            currentOperation = button[i].value;
+            firstOperator = currentOperation;
+          }
+        } else if (firstOperator !== null && secondOperator === null) {
           secondOperator = button[i].value;
+          currentOperation = secondOperator;
+        } else {
+          firstOperator = button[i].value;
+          currentOperation = firstOperator;
         }
-        currentOperation = button[i].value;
       }
     })
   }
 }
-
-
 
 function getOperator() {
   for (let i = 0; i < button.length; i++) {
@@ -64,51 +61,25 @@ function getOperator() {
           let num2 = parseFloat(secondNumber);
           let result = operate(firstOperator, num1, num2);
           if (!isNaN(result)) {
-            displayValue = result.toString();
-            populateDisplay();
             firstNumber = result.toString();
-            firstOperator = currentOperation;
+            displayValue = firstNumber;
+            populateDisplay();
             secondNumber = null;
             secondOperator = null;
+            currentOperation = button[i].value;
+            firstOperator = currentOperation;
           }
-          currentOperation = button[i].value;
+        } else if (firstOperator !== null && secondOperator === null) {
+          secondOperator = button[i].value;
+          currentOperation = secondOperator;
         } else {
-          if (firstOperator === null) {
-            firstOperator = button[i].value;
-          } else {
-            secondOperator = button[i].value;
-          }
-          currentOperation = button[i].value;
+          firstOperator = button[i].value;
+          currentOperation = firstOperator;
         }
       }
     })
   }
 }
-
-
-
-
-
-
-
-
-// Handle clear and all-clear buttons
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("clear")) {
-    displayValue = "0";
-    populateDisplay();
-  } else if (event.target.classList.contains("all-clear")) {
-    displayValue = "0";
-    firstNumber = null;
-    secondNumber = null;
-    firstOperator = null;
-    secondOperator = null;
-    result = null;
-    populateDisplay();
-  }
-});
-
-
 
 //Handle the equals Button
 for (let i = 0; i < button.length; i++) {
@@ -131,39 +102,8 @@ for (let i = 0; i < button.length; i++) {
   });
 }
 
-
-
-
-// Store second number and operator
-for (let i = 0; i < button.length; i++) {
-  button[i].addEventListener('click', function () {
-    if (button[i].classList.contains("operand")) {
-      if (firstOperator == null) {
-        firstNumber = firstNumber === null ? button[i].value : firstNumber + button[i].value;
-        console.log("firstNumber: ", firstNumber);
-      }
-      else {
-        secondNumber = secondNumber === null ? button[i].value : secondNumber + button[i].value;
-        console.log("secondNumber: ", secondNumber);
-      }
-      displayValue = firstOperator == null ? firstNumber : secondNumber;
-      populateDisplay();
-    } else if (button[i].classList.contains("operator")) {
-      if (firstOperator === null) {
-        firstOperator = button[i].value;
-      } else {
-        secondOperator = button[i].value;
-      }
-      displayValue = button[i].value;
-      populateDisplay();
-    }
-  });
-}
-
-
-
-
-
+buttonClick();
+getOperator();
 
 // Operation Functions
 function add(a, b) {
