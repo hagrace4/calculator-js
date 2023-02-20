@@ -25,7 +25,7 @@ function buttonClick() {
         inputOperand(buttons[i].value);
         updateDisplay();
       } else if (buttons[i].classList.contains('equals')) {
-        // inputOperand(buttons[i].value);
+        // inputEquals(buttons[i].value);
         updateDisplay();
       }
     })
@@ -58,8 +58,26 @@ function inputOperand(num) {
 
 //Function to handle the input of Operators
 function inputOperator(op) {
-
-
+  if (firstOperator != null && secondOperator === null) {
+    //Handle second operator input
+    secondOperator = op;
+    secondNumber = displayValue;
+    result = operate(firstOperator, firstNumber, secondNumber);
+    displayValue = result;
+    firstNumber = displayValue;
+    result = null;
+  } else if (firstOperator != null && secondOperator != null) {
+    // handles subsequent 'second' operators
+    secondNumber = displayValue
+    result = operate(secondOperator, firstNumber, secondNumber);
+    secondOperator = op;
+    firstNumber = displayValue;
+    result = null;
+  } else {
+    //handle first operator input
+    firstOperator = op;
+    firstNumber = displayValue;
+  }
 }
 
 // Operation Functions
