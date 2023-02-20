@@ -5,14 +5,62 @@ let secondNumber = null;
 let firstOperator = null;
 let secondOperator = null;
 let result = null;
-
-const display = document.getElementById('display');
-const numButtons = document.querySelectorAll('.num-buttons button');
+const buttons = document.querySelectorAll('button');
 
 
 
 
+function updateDisplay() {
+  const display = document.getElementById('display');
+  display.innerText = displayValue;
+}
 
+function buttonClick() {
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      if (buttons[i].classList.contains('operand')) {
+        inputOperand(buttons[i].value);
+        updateDisplay();
+      } else if (buttons[i].classList.contains('operator')) {
+        inputOperand(buttons[i].value);
+        updateDisplay();
+      } else if (buttons[i].classList.contains('equals')) {
+        // inputOperand(buttons[i].value);
+        updateDisplay();
+      }
+    })
+  }
+}
+
+buttonClick();
+
+//Function to handle inputs of Operands
+function inputOperand(num) {
+  if (firstOperator == null) {
+    if (displayValue === "0" || displayValue === 0) {
+      //handle first operator input
+      displayValue = num;
+    } else if (displayValue === firstNumber) {
+      // begin new operation after inputEquals()
+      displayValue = num;
+    } else {
+      displayValue += num;
+    }
+  } else {
+    // inputs for secondOperand
+    if (displayValue === firstNumber) {
+      displayValue = num;
+    } else {
+      displayValue += num;
+    }
+  }
+}
+
+//Function to handle the input of Operators
+function inputOperator(op) {
+
+
+}
 
 // Operation Functions
 function add(a, b) {
