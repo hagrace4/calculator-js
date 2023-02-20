@@ -86,6 +86,8 @@ function getOperator() {
 }
 
 
+
+
 getOperator();
 
 
@@ -133,6 +135,9 @@ for (let i = 0; i < button.length; i++) {
     }
   });
 }
+
+
+
 
 
 
@@ -187,7 +192,7 @@ function divide(a, b) {
 
 function operate(op, a, b) {
   console.log("a: ", a);
-  console.log("op", op);
+  console.log("op1", op);
   console.log("b: ", b);
   if (op == "+") {
     return add(a, b);
