@@ -9,21 +9,9 @@ let result = null;
 const display = document.getElementById('display');
 const numButtons = document.querySelectorAll('.num-buttons button');
 
-function updateDisplay(value) {
-  if (displayValue === '0') {
-    displayValue = value;
-  } else {
-    displayValue += value;
-  }
-  display.textContent = displayValue;
-}
 
-numButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const value = button.textContent;
-    updateDisplay(value);
-  });
-})
+
+
 
 
 // Operation Functions
