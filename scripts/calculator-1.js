@@ -80,6 +80,18 @@ function inputOperator(op) {
   }
 }
 
+//function to handle when equals is clicked
+function inputEquals() {
+  if (firstOperator === null) {
+    displayValue = displayValue;
+  } else if (secondOperator != null) {
+    //handle final result
+    secondNumber = displayValue;
+    result = operate(secondOperator, firstNumber, secondNumber);
+  }
+  // Finish inputEquals() functionality
+}
+
 // Operation Functions
 function add(a, b) {
   return a + b;
