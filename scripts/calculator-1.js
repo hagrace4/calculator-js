@@ -15,17 +15,22 @@ function updateDisplay() {
   display.innerText = displayValue;
 }
 
+updateDisplay();
+
 function buttonClick() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
       if (buttons[i].classList.contains('operand')) {
+        console.log('number pressed'); //debug
         inputOperand(buttons[i].value);
         updateDisplay();
       } else if (buttons[i].classList.contains('operator')) {
+        console.log('operator pressed'); //debug
         inputOperand(buttons[i].value);
         updateDisplay();
       } else if (buttons[i].classList.contains('equals')) {
-        // inputEquals(buttons[i].value);
+        console.log('equals pressed'); //debug
+        inputEquals(buttons[i].value);
         updateDisplay();
       }
     })
@@ -88,8 +93,32 @@ function inputEquals() {
     //handle final result
     secondNumber = displayValue;
     result = operate(secondOperator, firstNumber, secondNumber);
+    if (result === 'oops') {
+      displayValue = 'oops';
+    } else {
+      displayValue = result.toString();
+      firstNumber = displayValue
+      secondNumber = null;
+      firstOperator = null;
+      secondOperator = null;
+      result = null;
+    }
+  } else {
+    // handle first operation
+    secondNumber = displayValue;
+    result = operate(firstOperator, firstNumber, secondNumber);
+    if (result === 'oops') {
+      displayValue === 'oops';
+    } else {
+      displayValue = result.toString();
+      firstNumber = displayValue;
+      secondNumber = null;
+      firstOperator = null;
+      secondOperator = null;
+      result = null;
+    }
   }
-  // Finish inputEquals() functionality
+  
 }
 
 // Operation Functions
