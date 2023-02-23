@@ -1,21 +1,43 @@
 // **variables**
 let displayValue = "0";
-let firstNumber = null;
-let secondNumber = null;
+let firstOperand = null;
+let secondOperand = null;
 let firstOperator = null;
 let secondOperator = null;
 let result = null;
-const buttons = document.querySelectorAll('button');
 
+const buttons = document.querySelectorAll('button');
+const display = document.getElementById('display');
+
+
+
+// Event Listener for number buttons
+const numButtons = document.querySelectorAll('.operand');
+numButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (displayValue === "0" || displayValue === 0) {
+      displayValue = button.value;
+    } else {
+      displayValue += button.value;
+    }
+    updateDisplay();
+  })
+})
+
+const opButtons = document.querySelectorAll('.operator');
+opButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    console.log('operator clicked'); //debug 
+    firstOperand = displayValue;
+  })
+})
 
 
 
 function updateDisplay() {
-  const display = document.getElementById('display');
   display.innerText = displayValue;
 }
 
-updateDisplay();
 
 
 
