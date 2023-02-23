@@ -15,10 +15,17 @@ const display = document.getElementById('display');
 const numButtons = document.querySelectorAll('.operand');
 numButtons.forEach(button => {
   button.addEventListener('click', () => {
-    if (displayValue === "0" || displayValue === 0) {
+    if (firstOperator == null) {
+      if (displayValue === "0" || displayValue === 0) {
+        displayValue = button.value;
+      } else {
+        displayValue += button.value;
+      }
+    } else if (firstOperator != null && secondOperator == null) {
+      //handle second Operand
+      clearDisplay();
       displayValue = button.value;
-    } else {
-      displayValue += button.value;
+      secondOperand = displayValue;
     }
     updateDisplay();
   });
@@ -28,14 +35,14 @@ numButtons.forEach(button => {
 const opButtons = document.querySelectorAll('.operator');
 opButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // handle first operand clicks
     if (firstOperator == null) {
+      //handle first operand clicks
       console.log('operator1 clicked'); //debug
       firstOperand = displayValue;
+      firstOperator = button.value;
     } else if (firstOperator != null) {
       console.log('operator2 clicked'); //debug
       //handle input and storing of secondOperand
-      clearDisplay();
       secondOperand = displayValue;
     }
   });
@@ -45,7 +52,7 @@ opButtons.forEach(button => {
 const equalsButton = document.querySelectorAll('.equals');
 equalsButton.forEach(button => {
   button.addEventListener('click', () => {
-    displayValue = operate(firstOperator, firstOperand, secondOperand);
+    displayValue = operate(firstOperator, Number(firstOperand), Number(secondOperand));
     updateDisplay();
   })
 })
@@ -58,11 +65,11 @@ function updateDisplay() {
 
 function clearDisplay() {
   displayValue = "0";
-  firstOperand = null;
-  secondOperand = null;
-  firstOperator = null;
-  secondOperator = null;
-  result = null;
+  // firstOperand = null;
+  // secondOperand = null;
+  // firstOperator = null;
+  // secondOperator = null;
+  // result = null;
   updateDisplay();
 }
 
