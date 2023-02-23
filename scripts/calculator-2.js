@@ -21,14 +21,32 @@ numButtons.forEach(button => {
       displayValue += button.value;
     }
     updateDisplay();
-  })
-})
+  });
+});
 
+//Handle operator button presses
 const opButtons = document.querySelectorAll('.operator');
 opButtons.forEach(button => {
   button.addEventListener('click', () => {
-    console.log('operator clicked'); //debug 
-    firstOperand = displayValue;
+    // handle first operand clicks
+    if (firstOperator == null) {
+      console.log('operator1 clicked'); //debug
+      firstOperand = displayValue;
+    } else if (firstOperator != null) {
+      console.log('operator2 clicked'); //debug
+      //handle input and storing of secondOperand
+      clearDisplay();
+      secondOperand = displayValue;
+    }
+  });
+});
+
+// Handle Equals Button Press
+const equalsButton = document.querySelectorAll('.equals');
+equalsButton.forEach(button => {
+  button.addEventListener('click', () => {
+    displayValue = operate(firstOperator, firstOperand, secondOperand);
+    updateDisplay();
   })
 })
 
@@ -38,6 +56,15 @@ function updateDisplay() {
   display.innerText = displayValue;
 }
 
+function clearDisplay() {
+  displayValue = "0";
+  firstOperand = null;
+  secondOperand = null;
+  firstOperator = null;
+  secondOperator = null;
+  result = null;
+  updateDisplay();
+}
 
 
 
