@@ -58,6 +58,19 @@ equalsButton.forEach(button => {
 })
 
 
+//handle clear button press
+const clearButton = document.querySelectorAll('.clear, .all-clear');
+clearButton.forEach(button => {
+  button.addEventListener('click', () => {
+    displayValue = "0";
+    firstOperand = null;
+    secondOperand = null;
+    firstOperator = null;
+    secondOperator = null;
+    result = null;
+    updateDisplay();
+  })
+})
 
 function updateDisplay() {
   display.innerText = displayValue;
