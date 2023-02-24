@@ -40,10 +40,9 @@ opButtons.forEach(button => {
       console.log('operator1 clicked'); //debug
       firstOperand = displayValue;
       firstOperator = button.value;
-    } else if (firstOperator != null) {
+    } else if (firstOperator != null && secondOperator== null) {
       console.log('operator2 clicked'); //debug
       //handle input and storing of secondOperand
-      secondOperand = displayValue;
     }
   });
 });
