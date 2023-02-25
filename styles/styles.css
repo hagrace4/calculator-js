@@ -1,9 +1,11 @@
 :root {
   --white: #fff;
-  --blue: #035d8db8;
+  --cyan: #00D8F0;
+  --off-black: #1a1a1a;
+  --btc-orange: #F2A900;
 }
 body {
-  background: var(--blue);
+  background: var(--off-black);
   box-sizing: border-box;
 }
 .container-parent {
@@ -21,14 +23,14 @@ body {
 }
 
 .display {
-
+  background: var(--cyan);
   font-size: larger;
 }
 
 .ctl-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: var(--white);
+  background: var(--off-black);
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
@@ -46,9 +48,10 @@ body {
 }
 
 .num-buttons {
+  
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: var(--white);
+  background: var(--cyan);
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
@@ -58,6 +61,7 @@ body {
 }
 
 .num-buttons > button {
+  background-color: var(--btc-orange);
   cursor: pointer;
   margin: 2px;
   width: 80px;
